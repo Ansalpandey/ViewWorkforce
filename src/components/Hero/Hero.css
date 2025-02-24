@@ -1,0 +1,101 @@
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Active Slide */
+.hero-slide.active {
+    left: 0;
+    opacity: 1;
+}
+
+.hero-text {
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #004d40;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #222;
+    max-width: 700px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+
+.btn {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-green {
+    background-color: #004d40;
+    color: white;
+}
+
+.btn-yellow {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 35px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
+}

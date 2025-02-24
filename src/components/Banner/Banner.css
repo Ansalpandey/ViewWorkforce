@@ -1,0 +1,55 @@
+.hiring-banner {
+    width: 100%;
+    background-color: #ffe81a;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hiring-banner__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.hiring-banner__button {
+    background-color: #006b54;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.hiring-banner__button:hover {
+    background-color: #005543;
+}
+
+.hiring-banner__icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .hiring-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .hiring-banner__title {
+        font-size: 20px;
+    }
+
+    .hiring-banner__button {
+        align-self: stretch;
+        justify-content: center;
+    }
+}
+
