@@ -1,6 +1,6 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -8,14 +8,42 @@ const Contact = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Your message has been sent!");
-    setFormData({ name: "", email: "", message: "" }); // Reset form after submission
+    setLoading(true);
+    setStatus("");
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIL_JS_SERVICE_ID, // Correctly prefixed env variable
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID, // Correctly prefixed env variable
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY // Correctly prefixed env variable
+      )
+      .then(
+        () => {
+          setStatus("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("EmailJS error:", error);
+          setStatus("Failed to send message.");
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -25,6 +53,8 @@ const Contact = () => {
         <p className="contact-description">
           Have questions or inquiries? Feel free to reach out to us.
         </p>
+
+        {status && <p className="status-message">{status}</p>}
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -66,7 +96,9 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-btn">Send Message</button>
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
+          </button>
         </form>
       </div>
     </section>

@@ -14,9 +14,10 @@ const Footer = () => {
         <div className="footer-company">
           <img src={logo} alt="Logo" className="footer-logo" />
           <p>
-            View Workforce is a one-stop solution for recruitment services. We
-            assist companies in hiring smart and professional talent to take
-            their businesses to the next level.
+            <p>4th floor, 487/5, Chowk,</p>
+            <p>Near IPD College, Peera Garhi,</p>
+            <p>Peeragarhi Village, Paschim Vihar,</p>
+            <p>New Delhi, Delhi, 110087, India</p>
           </p>
         </div>
         <div className="footer-links">
@@ -56,6 +57,13 @@ const Footer = () => {
               <li>Our Clients</li>
             </ul>
           </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li>+91 82879 64588</li>
+              <li>office@viewworkforce.com</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="footer-industries">
@@ -68,8 +76,8 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>
-          Copyright &copy; 2016-{new Date().getFullYear()} View Workforce.
-          All Rights Reserved. <a href="#">Privacy Policy</a> |
+          Copyright &copy; 2023-{new Date().getFullYear()} View Workforce. All
+          Rights Reserved. <a href="#">Privacy Policy</a> |
           <a href="#">Terms & Conditions</a> | <a href="#">Disclaimer</a> |
           <a href="#">Sitemap</a>
         </p>
